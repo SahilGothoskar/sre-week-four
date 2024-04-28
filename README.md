@@ -42,7 +42,7 @@ kubectl get po -n sre
 
 
 
-## Creating a Canary Version
+### Creating a Canary Version
 
 ```bash
 canary-deployment.yml
@@ -91,10 +91,38 @@ spec:
 
 ```
 
-
-## Deploy the canary 
-
+### Deploy the canary 
 
 ```
 helm upgrade upcommerce ./upcommerce -n sre
 ```
+
+
+
+## Roll back to stable release in the event of canary failure
+
+
+### Check deployment
+```
+kubectl get deployment -n sre
+```
+![image](https://github.com/SahilGothoskar/sre-week-four/assets/33109078/ce400782-5885-4346-b8d6-e00afa2308f3)
+
+
+
+### Check pods
+```
+kubectl get pods -n sre
+```
+
+![image](https://github.com/SahilGothoskar/sre-week-four/assets/33109078/bb6e885d-bd1d-49a2-949b-125064e4f01b)
+
+
+
+### Check Charts
+
+```
+helm ls -n sre
+```
+
+![image](https://github.com/SahilGothoskar/sre-week-four/assets/33109078/593c55c4-bffe-4794-adef-23320f17d7df)

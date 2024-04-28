@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-canaryservice
+spec:
+  selector:
+    app: {{ .Release.Name }}-canary-app
+  ports:
+    - protocol: TCP
+      port: 5003
+      targetPort: 5003
+  type: NodePort
+
